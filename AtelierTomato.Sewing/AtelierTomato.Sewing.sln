@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtelierTomato.Sewing", "AtelierTomato.Sewing\AtelierTomato.Sewing.csproj", "{EBE8746C-2516-469A-8FA0-E9190D327F11}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78} = {DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtelierTomato.SewingTools", "AtelierTomato.SewingTools\AtelierTomato.SewingTools.csproj", "{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtelierTomato.SewingTools", "AtelierTomato.SewingTools\AtelierTomato.SewingTools.csproj", "{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

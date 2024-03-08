@@ -44,6 +44,21 @@ namespace AtelierTomato.SewingTools.Database.Sqlite
 			return result;
 		}
 
+		public async Task AddNewFabric(string name, string material)
+		{
+			await using var connection = new SqliteConnection(connectionString);
+			connection.Open();
+
+			await connection.ExecuteAsync($@"insert into {nameof(Fabric)} ({nameof(Fabric.Name)}, {nameof(Fabric.Material)}) values ( @name, @material",
+				new
+				{
+					name,
+					material
+				});
+
+			connection.Close();
+		}
+
 		public async Task WriteFabric(Fabric fabric) => await WriteFabricRange([fabric]);
 
 		public async Task WriteFabricRange(IEnumerable<Fabric> fabrics)

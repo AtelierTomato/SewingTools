@@ -7,6 +7,7 @@ namespace AtelierTomato.SewingTools.Database
 		Task<Fabric> ReadFabric(ulong ID);
 		Task<IEnumerable<Fabric>> ReadFabricRange(IEnumerable<ulong> IDs);
 		Task<IEnumerable<Fabric>> ReadAllFabrics();
+		Task AddNewFabric(string name, string material);
 		Task WriteFabric(Fabric fabric);
 		Task WriteFabricRange(IEnumerable<Fabric> fabrics);
 	}
