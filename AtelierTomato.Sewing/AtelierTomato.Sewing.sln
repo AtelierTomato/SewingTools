@@ -10,6 +10,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtelierTomato.Sewing", "Ate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtelierTomato.SewingTools", "AtelierTomato.SewingTools\AtelierTomato.SewingTools.csproj", "{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtelierTomato.SewingWindowsForm", "AtelierTomato.SewingWindowsForm\AtelierTomato.SewingWindowsForm.csproj", "{CB4D309E-D6C2-453B-8654-9C2BACD3AB5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78} = {DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCBC9154-307B-4BA5-A7FF-0D4088FB1A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB4D309E-D6C2-453B-8654-9C2BACD3AB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB4D309E-D6C2-453B-8654-9C2BACD3AB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB4D309E-D6C2-453B-8654-9C2BACD3AB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB4D309E-D6C2-453B-8654-9C2BACD3AB5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
