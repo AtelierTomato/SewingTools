@@ -6,8 +6,6 @@ namespace AtelierTomato.SewingTools.Database.Sqlite
 {
 	public class SqliteFabricInImageAccess : IFabricInImageAccess
 	{
-		private readonly SqliteFabricAccess sqliteFabricAccess = new();
-		private readonly SqliteImageAccess sqliteImageAccess = new();
 		private string connectionString = "Data Source=K:\\Projects\\Programming\\,Databases";
 
 		public async Task<IEnumerable<Fabric>> ReadFabricsInImage(ulong imageID)
@@ -15,11 +13,10 @@ namespace AtelierTomato.SewingTools.Database.Sqlite
 			await using var connection = new SqliteConnection(connectionString);
 			connection.Open();
 
-			var fabricIDs = await connection.QueryAsync<ulong>($@"select {nameof(FabricInImage.FabricID)} from {nameof(FabricInImage)} where {nameof(FabricInImage.ImageID)} = @imageID", new { imageID });
+			var result = await connection.QueryAsync<Fabric>($@"select * from {nameof(Fabric)} where {nameof(Fabric.ID)} in 
+(select {nameof(FabricInImage.FabricID)} from {nameof(FabricInImage)} where {nameof(FabricInImage.ImageID)} = @imageID)", new { imageID });
 
 			connection.Close();
-
-			var result = await sqliteFabricAccess.ReadFabricRange(fabricIDs);
 
 			return result;
 		}
@@ -29,11 +26,10 @@ namespace AtelierTomato.SewingTools.Database.Sqlite
 			await using var connection = new SqliteConnection(connectionString);
 			connection.Open();
 
-			var imageIDs = await connection.QueryAsync<ulong>($@"select {nameof(FabricInImage.ImageID)} from {nameof(FabricInImage)} where {nameof(FabricInImage.FabricID)} = @fabricID", new { fabricID });
+			var result = await connection.QueryAsync<Image>($@"select * from {nameof(Image)} where {nameof(Image.ID)} in 
+(select {nameof(FabricInImage.ImageID)} from {nameof(FabricInImage)} where {nameof(FabricInImage.FabricID)} = @fabricID)", new { fabricID });
 
 			connection.Close();
-
-			var result = await sqliteImageAccess.ReadImageRange(imageIDs);
 
 			return result;
 		}
